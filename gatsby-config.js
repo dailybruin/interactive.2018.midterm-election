@@ -4,6 +4,7 @@ module.exports = {
     description: 'A Daily Bruin guide to the 2018 Midterm Election',
     url: '',
   },
+  pathPrefix: '/2018/midterm-election',
   plugins: [
     'gatsby-plugin-typescript',
     'gatsby-plugin-react-helmet',
