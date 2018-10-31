@@ -23,6 +23,7 @@
     "react": "^16.5.2",
     "react-animate-height": "^2.0.6",
     "react-dom": "^16.5.2",
+    "react-emotion": "^9.2.12",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.13",
     "typography": "^0.16.17"
