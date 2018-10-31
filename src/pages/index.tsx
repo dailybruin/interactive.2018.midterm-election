@@ -1,6 +1,9 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import { Article, Byline, Footer, Head } from '@dailybruin/lux'
+import IconTable from '../components/IconTable';
+import TestBackground from '../assets/longcat.jpg';
+import TestSVGIcon from '../assets/firefox.svg';
 
 export const query = graphql`
   query {
@@ -17,6 +20,23 @@ const IndexPage = ({ data }) => (
   <>
     <Head {...data.site.siteMetadata} />
     <h1>Hi people</h1>
+    <IconTable
+      heightVW={200}
+      backgroundSrc={TestBackground}
+      icons={[{
+        src: TestSVGIcon,
+        left: 10,
+        top: 10,
+        width: 20,
+        height: 20,
+      }, {
+        src: TestSVGIcon,
+        left: 20,
+        top: 20,
+        width: 20,
+        height: 20,
+      }]}
+      />
     <Byline authors={['Tanner Walters', 'Mackenzie Possee', 'Jacob Preal']} />
     <Article
       dropcap={true}
