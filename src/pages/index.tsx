@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import { Article, Byline, Footer, Head } from '@dailybruin/lux'
-import IconTable from '../components/IconTable';
-import TestBackground from '../assets/longcat.jpg';
-import TestSVGIcon from '../assets/firefox.svg';
+import IconTable from '../components/IconTable/index'
+import TestBackground from '../assets/longcat.jpg'
+import TestSVGIcon from '../assets/firefox.svg'
+import NavBar from '../components/NavBar/NavBar'
 
 export const query = graphql`
   query {
@@ -19,6 +20,7 @@ export const query = graphql`
 const IndexPage = ({ data }) => (
   <>
     <Head {...data.site.siteMetadata} />
+    <NavBar />
     <h1>Hi people</h1>
     <IconTable
       heightVW={200}
