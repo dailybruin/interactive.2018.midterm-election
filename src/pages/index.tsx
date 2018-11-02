@@ -1,10 +1,14 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import { Article, Byline, Footer, Head } from '@dailybruin/lux'
-import IconTable from '../components/IconTable/index'
-import TestBackground from '../assets/longcat.jpg'
-import TestSVGIcon from '../assets/firefox.svg'
 import NavBar from '../components/NavBar/NavBar'
+import IconTable from '../components/IconTable';
+import EndorseCircle from '../components/EndorseCircle/EndorseCircle';
+import BackgroundImage from '../assets/background.png';
+import S1Outline from '../assets/s1.png';
+import S1Fill from '../assets/s1-fill.png';
+import TestLongCat from '../assets/longcat.jpg';
+import {css} from 'emotion';
 
 export const query = graphql`
   query {
@@ -24,19 +28,19 @@ const IndexPage = ({ data }) => (
     <h1>Hi people</h1>
     <IconTable
       heightVW={200}
-      backgroundSrc={TestBackground}
+      backgroundSrc={BackgroundImage}
       icons={[{
-        src: TestSVGIcon,
-        left: 10,
-        top: 10,
-        width: 20,
-        height: 20,
+        src: S1Fill,
+        left: 16.7,
+        top: 110.1,
+        width: 25.4,
+        shouldMagnifyOnHover: false,
       }, {
-        src: TestSVGIcon,
-        left: 20,
-        top: 20,
-        width: 20,
-        height: 20,
+        src: S1Outline,
+        left: 16.7,
+        top: 110.1,
+        width: 25.4,
+        shouldMagnifyOnHover: true,
       }]}
       />
     <Byline authors={['Tanner Walters', 'Mackenzie Possee', 'Jacob Preal']} />
@@ -59,6 +63,14 @@ const IndexPage = ({ data }) => (
       ]}
     />
     <Footer developers="Nathan Smith" copyrightYear={2018} />
+    <div className={css`margin: 100px;`}>
+      <EndorseCircle
+        isApprove={false}
+        sizePx={150}
+        imgSizePx={120}
+        imgSrc={TestLongCat}
+        />
+    </div>
   </>
 )
 

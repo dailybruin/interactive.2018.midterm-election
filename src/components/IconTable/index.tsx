@@ -6,7 +6,7 @@ interface Icon {
   left: number;
   top: number;
   width: number;
-  height: number;
+  shouldMagnifyOnHover: boolean;
   onMouseEnterHandler?: (event?: React.MouseEvent) => void;
   onMouseExitHandler?: (event?: React.MouseEvent) => void;
   onClickHandler?: (event?: React.MouseEvent) => void;
@@ -27,33 +27,30 @@ export default class IconTable extends React.Component<IconTableProps> {
     const {icons} = this.props;
 
     return icons.map(({
-      src, left, top, width, height,
+      src, left, top, width, shouldMagnifyOnHover,
       onClickHandler = () => {},
     }) => {
-
       return (<div className={css`
           position: absolute;
           width: ${width}vw;
-          height: ${height}vw;
           margin-left: ${left}vw;
           margin-top: ${top}vw;
+          ${shouldMagnifyOnHover && `
+          transition: all 0.5s;
+          &:hover {
+            transform: scale(1.08);
+            // filter: drop-shadow(3px 3px 4px black);
+            cursor: pointer;
+            transition: all 0.5s;
+          }
+          `}
         `}
           onMouseEnter={(e) => e.preventDefault()}
-        >
-        <svg width="100%" height="100%"
           onClick={onClickHandler}
-          className={css`
-            transition: all 0.5s;
-            &:hover {
-              transform: scale(1.2);
-              filter: drop-shadow(3px 3px 4px black);
-              cursor: pointer;
-              transition: all 0.5s;
-            }
-          `}
-          >
-          <image width="100%" height="100%" href={src} />
-        </svg>
+        >
+        <img className={css`
+          margin: 0;
+        `}src={src} />
       </div>);
     });
   }
@@ -62,7 +59,6 @@ export default class IconTable extends React.Component<IconTableProps> {
     const {backgroundSrc, heightVW} = this.props;
     return (
       <div className={css`
-        position: relative;
         background: url(${backgroundSrc}) no-repeat;
         background-size: 100%;
         width: 100%;
