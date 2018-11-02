@@ -5,7 +5,8 @@ import IconTable from '../components/IconTable/index'
 import TestBackground from '../assets/longcat.jpg'
 import TestSVGIcon from '../assets/firefox.svg'
 import NavBar from '../components/NavBar/NavBar'
-
+import {ArticleGrid} from "@dailybruin/lux";
+import Section from "../components/Section";
 export const query = graphql`
   query {
     site {
@@ -22,6 +23,14 @@ const IndexPage = ({ data }) => (
     <Head {...data.site.siteMetadata} />
     <NavBar />
     <h1>Hi people</h1>
+
+    <ArticleGrid heading="News" articles={[{
+  section: "section",
+  headline: "headline",
+  byline: "byline",
+  link: "https://github.com/dailybruin/lux/blob/master/src/utils/convertEdgesToArticles/index.ts",
+  isColumn: false
+}]} />
     <IconTable
       heightVW={200}
       backgroundSrc={TestBackground}
