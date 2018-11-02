@@ -4,6 +4,7 @@ import { Article, Byline, Footer, Head } from '@dailybruin/lux'
 import IconTable from '../components/IconTable';
 import TestBackground from '../assets/longcat.jpg';
 import TestSVGIcon from '../assets/firefox.svg';
+import ExpandableCard from '../components/ExpandableCard/ExpandableCard'
 
 export const query = graphql`
   query {
@@ -57,6 +58,7 @@ const IndexPage = ({ data }) => (
       ]}
     />
     <Footer developers="Nathan Smith" copyrightYear={2018} />
+    
   </>
 )
 

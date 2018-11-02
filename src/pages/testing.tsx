@@ -23,11 +23,13 @@ const TestingPage = ({ data }) => (
         return(
           <ExpandableCard
             key={i}
-            title={`prop ${i}: testing`}
+            title={`prop ${i}: TESTING`.toUpperCase()}
             photo="https://dailybruin.com/images/2018/10/\web.sp_.mwp_.nbk_.ADX_-640x461.jpg"
             endorse= {i % 2 ? false : true}
             description="This is a test description to see if this works or not. This is a test description to see if this works or not, This is a test description to see if this works or notThis is a test description to see if this works or notThis is a test description to see if this works or notThis is a test description to see if this works or notThis is a test description to see if this works or not"
             height={200}
+            authors={["Max", "Richard", "Karl", "Mindy"]}
+            tags={["Opinion", "Editorial"]}
           />
         )
       }
