@@ -44,10 +44,11 @@ const IndexPage = ({ data }) => (
       />
     <div className={css`margin: 100px;`}>
       <EndorseCircle
-        isApprove={false}
+        isApprove={true}
         sizePx={150}
         imgSizePx={120}
         imgSrc={TestLongCat}
+        title="US SENATOR REPRESENTING CALIFORNIA"
         />
     </div>
   </>
