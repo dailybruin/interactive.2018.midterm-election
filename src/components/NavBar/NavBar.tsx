@@ -1,6 +1,8 @@
 import * as React from 'react'
 import styled, {css} from 'react-emotion'
 import Headroom from 'react-headroom'
+import Menu from '../Menu'
+import { CONNREFUSED } from 'dns';
 
 const RedButton = styled('button')`
   background-color: #CF5F5F;
@@ -22,9 +24,10 @@ const TitleBackground = styled('div')`
   height: 100%;
   background-color: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   height: 240px;
+  marign-bottom: 0;
   @media (max-width: 500px) {
     height: 45vw;
   }
@@ -49,6 +52,7 @@ const NavBarContent = styled('div')`
 display: flex;
 flex-direction: column;
 margin-left: 10px;
+marign-bottom: auto;
 height: 140px;
 justify-content: center;
 @media (max-width: 500px) {
@@ -80,13 +84,41 @@ const Title = styled('p')`
   }
 `
 
-class NavBar extends React.Component<{},{}> {
+const Subtitle = styled('p')`
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  font-size: 40px;
+  text-align: right;
+  color: #1C568C;
+  margin-bottom: 0;
+`
+
+const rightChild = css({
+  alignSelf: "flex-end",
+  display : "flex",
+  alignItems: "flex-end",
+  justifyContent : "flex-end",
+  flexDirection : "column",
+  height: "100%"})
+
+interface NavbarProps {
+  page: string,
+}
+
+class NavBar extends React.Component<NavbarProps,{}> {
+
+  constructor(props) {
+    super(props);
+  }
 
   render() {
     return(
       <Headroom>
         <TitleBackground>
-          <div className={css`
+          <div style={{display: "flex", width: "100%", marginTop: "50px", alignItems: "center", justifyContent: "space-between"}}>
+ <div className={css`
             display: flex;
           `}>
           <NavBarContent>
@@ -100,12 +132,28 @@ class NavBar extends React.Component<{},{}> {
             <Title>ELECTIONS</Title>
           </NavBarContent>
           </div>
+          {
+            (this.props.page == 'landing') &&
           <NavBarContent>
             <LandingText>
               THE DAILY BRUIN’S 2018 MIDTERM ELECTION GUIDE: Click on the illustration below to see read about local, state, and national races or view our list of endorsements.
             </LandingText>
             <RedButton>DAILY BRUIN ENDORSEMENTS</RedButton>
           </NavBarContent>
+          }
+          {(this.props.page == 'info') &&
+          <div className={rightChild}>
+          <Menu></Menu>
+          <Subtitle>DAILY BRUIN ELECTION GUIDE</Subtitle>
+          </div>
+          }
+          {(this.props.page == 'endorsements') &&
+          <div className={rightChild}>
+          <button>Return to Guide Placeholder</button>
+          <Subtitle>DAILY BRUIN ELECTION GUIDE</Subtitle>
+          </div>
+          }
+          </div>
         </TitleBackground>
       </Headroom>
     )
