@@ -24,9 +24,10 @@ const TitleBackground = styled('div')`
   height: 100%;
   background-color: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-bottom: auto;
+  height: 240px;
+  marign-bottom: 0;
   @media (max-width: 500px) {
     height: 45vw;
   }
@@ -116,7 +117,8 @@ class NavBar extends React.Component<NavbarProps,{}> {
     return(
       <Headroom>
         <TitleBackground>
-          <div className={css`
+          <div style={{display: "flex", width: "100%", marginTop: "50px", alignItems: "center", justifyContent: "space-between"}}>
+ <div className={css`
             display: flex;
           `}>
           <NavBarContent>
@@ -151,6 +153,7 @@ class NavBar extends React.Component<NavbarProps,{}> {
           <Subtitle>DAILY BRUIN ELECTION GUIDE</Subtitle>
           </div>
           }
+          </div>
         </TitleBackground>
       </Headroom>
     )
