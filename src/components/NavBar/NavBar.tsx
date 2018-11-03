@@ -1,12 +1,28 @@
 import * as React from 'react'
-import styled from 'react-emotion'
+import styled, {css} from 'react-emotion'
 import Headroom from 'react-headroom'
+
+const RedButton = styled('button')`
+  background-color: #CF5F5F;
+  color: white;
+  border: none;
+  width: 270px;
+  align-self: flex-end;
+  margin-right: 50px;
+`
+
+const LandingText = styled('p')`
+  width: 600px;
+  margin: 0px;
+  margin-right: 50px;
+`
 
 const TitleBackground = styled('div')`
   width: 100%;
   height: 100%;
   background-color: white;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   height: 240px;
   @media (max-width: 500px) {
@@ -70,7 +86,9 @@ class NavBar extends React.Component<{},{}> {
     return(
       <Headroom>
         <TitleBackground>
-          <>
+          <div className={css`
+            display: flex;
+          `}>
           <NavBarContent>
             <YearBox>
               <YearText>20</YearText>
@@ -81,9 +99,12 @@ class NavBar extends React.Component<{},{}> {
             <Title>MIDTERM</Title>
             <Title>ELECTIONS</Title>
           </NavBarContent>
-          </>
+          </div>
           <NavBarContent>
-
+            <LandingText>
+              THE DAILY BRUIN’S 2018 MIDTERM ELECTION GUIDE: Click on the illustration below to see read about local, state, and national races or view our list of endorsements.
+            </LandingText>
+            <RedButton>DAILY BRUIN ENDORSEMENTS</RedButton>
           </NavBarContent>
         </TitleBackground>
       </Headroom>
