@@ -9,6 +9,9 @@ import S1Outline from '../assets/s1.png';
 import S1Fill from '../assets/s1-fill.png';
 import TestLongCat from '../assets/longcat.jpg';
 import {css} from 'emotion';
+/*import SectionList from '../components/Section2.0/Section2.tsx';*/
+//import ExpandableCard from "../components/ExpandableCard/ExpandableCard";
+import Section2 from "../components/Section2.0/Section2.tsx";
 
 export const query = graphql`
   query {
@@ -25,6 +28,8 @@ const IndexPage = ({ data }) => (
   <>
     <Head {...data.site.siteMetadata} />
     <NavBar />
+    <Section2 />
+
     <IconTable
       heightVW={200}
       backgroundSrc={BackgroundImage}
