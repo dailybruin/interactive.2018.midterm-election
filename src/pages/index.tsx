@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import { Article, Byline, Footer, Head } from '@dailybruin/lux'
+import TestBackground from '../assets/longcat.jpg';
+import TestSVGIcon from '../assets/firefox.svg';
+import ExpandableCard from '../components/ExpandableCard/ExpandableCard'
 import IconTable from '../components/IconTable/index'
-import TestBackground from '../assets/longcat.jpg'
-import TestSVGIcon from '../assets/firefox.svg'
 import NavBar from '../components/NavBar/NavBar'
 
 export const query = graphql`
@@ -59,6 +60,7 @@ const IndexPage = ({ data }) => (
       ]}
     />
     <Footer developers="Nathan Smith" copyrightYear={2018} />
+    
   </>
 )
 

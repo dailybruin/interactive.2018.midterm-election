@@ -2,11 +2,13 @@ import * as React from 'react'
 import { css } from 'react-emotion'
 import AnimateHeight from 'react-animate-height'
 import { RotateCcw } from 'react-feather';
-
+import { Byline } from '@dailybruin/lux'
+import { toSentence } from '@dailybruin/lux'
 interface ExpandableCardProps {
   title: string,
+  authors: string[],
+  tags: string[],
   photo: any,
-  endorse: boolean,
   description: string,
   height: number,
 }
@@ -33,46 +35,65 @@ class ExpandableCard extends React.Component<ExpandableCardProps, ExpandableCard
         width: 100%;
         display: flex;
         flex-direction: column;
-        border: 1px black solid;
+        background-color: #FAFAFA;
       `}>
-        <div className={css`
+        <div className={ css`
           display: flex;
-          justify-content: center;
+          background-color: #96B3CE;
+          color: white;
           align-items: center;
         `}>
-          <img src={this.props.photo} height={this.props.height} className={css`
-            margin: 0px;
-          `}/>
+          <h1 className={ css`
+            margin: 10px;
+            vertical-align: middle;
+        `}>{this.props.title}</h1>
+        </div>
+        <div className={css`
+          display: flex;
+          padding: 10px;
+        `}>
           <div className={css`
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            align-items: left;
+            justify-content: space-between;
             width: 100%;
           `}>
-            <h1>{this.props.title}</h1>
-            <p>We think this is ...</p>
-            {this.props.endorse && <h2>Good</h2>}
-            {!this.props.endorse && <h2>Bad</h2>}
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Arrow-down.svg"
-              height={20}
-              onClick={this.toggle}
-              className={css`
-                transform: rotate(${this.state.open ? 180:0}deg);
-                transition: transform 0.2s linear;
-                transform-style: preserve-3D;
-                margin: 0px;
-              `}
-            />
+            <div>
+              <h4 className={css`
+              margin: 5px;
+            `}>By {toSentence(this.props.authors.map(author => author.toUpperCase()))}</h4>
+              <h4 className={css`
+              margin: 5px;
+              color: #96B3CE;
+            `}>{this.props.tags.join(", ")}</h4>
+            </div>
+            <div>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Arrow-down.svg"
+                height={20}
+                onClick={this.toggle}
+                className={css`
+                  transform: rotate(${this.state.open ? 180:0}deg);
+                  transition: transform 0.2s linear;
+                  transform-style: preserve-3D;
+                  margin: 0;
+                `}
+              />
+            </div>
           </div>
+          <img src={this.props.photo} height={this.props.height} className={css`
+            margin: 0px;
+          `}/>
         </div>
         <AnimateHeight
-            duration={ 500 }
-            height={ this.state.open? 'auto' : 0}
-          >
-            <p>{this.props.description}</p>
-          </AnimateHeight>
+          duration={ 500 }
+          height={ this.state.open ? 'auto' : 0}
+        >
+          <p className={css`
+          margin: 10px;
+          `}>{this.props.description}</p>
+        </AnimateHeight>
       </div>
     )
   }
