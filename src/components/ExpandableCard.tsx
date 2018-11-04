@@ -32,7 +32,8 @@ class ExpandableCard extends React.Component<ExpandableCardProps, ExpandableCard
     console.log(this.props)
     return(
       <div className={css`
-        width: 100%;
+        width: 300px;
+        height: 200px;
         display: flex;
         flex-direction: column;
         background-color: #FAFAFA;
@@ -82,8 +83,12 @@ class ExpandableCard extends React.Component<ExpandableCardProps, ExpandableCard
               />
             </div>
           </div>
-          <img src={this.props.photo} height={this.props.height} className={css`
+          <div className={css`
+            background-image: url(${this.props.photo});
+            background-size: cover;
             margin: 0px;
+            height: 100px;
+            width: 100px;
           `}/>
         </div>
         <AnimateHeight

@@ -1,18 +1,23 @@
 import React, { Component } from 'react'
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-import ExpandableCard from '../ExpandableCard/ExpandableCard.tsx'
+import ExpandableCard from './ExpandableCard'
+import { FileText } from 'react-feather';
 
 interface CardProps {
     /* Props of card component */
 }
 
 interface SectionProps {
-    title: string,
-    cardData: CardProps[], //for now, not exactly sure how we are pulling data
+    title?: string,
+    cardData?: CardProps[], //for now, not exactly sure how we are pulling data
 }
 
-export default class SectionList extends React.Component<CardProps,SectionProps> {
+interface SectionState {
+    cards: number[]
+}
+
+export default class SectionList extends React.Component<SectionProps, SectionState> {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,7 +30,7 @@ export default class SectionList extends React.Component<CardProps,SectionProps>
             <div>
                 { this.state.cards ? (
                     <div>
-                        <Grid container spacing={24} style={{padding: 16}}>
+                        <Grid container justify="center" spacing={24} style={{padding: 16}}>
                             { this.state.cards.map((currentCard,index) => (
                                 <Grid item md={4} key={index}>
                                     <ExpandableCard

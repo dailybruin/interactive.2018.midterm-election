@@ -1,8 +1,7 @@
 import * as React from 'react'
 import styled, {css} from 'react-emotion'
 import Headroom from 'react-headroom'
-import Menu from '../Menu'
-import { CONNREFUSED } from 'dns';
+import Menu from './Menu'
 
 const RedButton = styled('button')`
   background-color: #CF5F5F;
@@ -14,7 +13,7 @@ const RedButton = styled('button')`
 `
 
 const LandingText = styled('p')`
-  width: 600px;
+  max-width: 600px;
   margin: 0px;
   margin-right: 50px;
 `
@@ -26,11 +25,8 @@ const TitleBackground = styled('div')`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 240px;
-  marign-bottom: 0;
-  @media (max-width: 500px) {
-    height: 45vw;
-  }
+  margin-bottom: 0;
+  min-height: 240px;
 `
 
 const YearBox = styled('div')`
@@ -42,22 +38,19 @@ const YearBox = styled('div')`
   justify-content: center;
   align-items: center;
   margin-left: 50px;
-  @media (max-width: 500px) {
-    margin-left: 5vw;
-    width: 20vw;
-    height: 27vw;
-  }
 `
+
 const NavBarContent = styled('div')`
-display: flex;
-flex-direction: column;
-margin-left: 10px;
-marign-bottom: auto;
-height: 140px;
-justify-content: center;
-@media (max-width: 500px) {
-  height: 27vw;
-}
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-bottom: auto;
+  height: 140px;
+  justify-content: center;
+  @media (max-width: 1100px) {
+    height: 27vw;
+    align-items: center;
+  }
 `
 const YearText = styled('p')`
   margin: 0;
@@ -66,10 +59,6 @@ const YearText = styled('p')`
   line-height: 50px;
   font-size: 60px;
   color: #FFFFFF;
-  @media (max-width: 500px) {
-    font-size: 12vw;
-    line-height: 12vw;
-  }
 `
 
 const Title = styled('p')`
@@ -78,10 +67,6 @@ const Title = styled('p')`
   font-weight: 900;
   line-height: 50px;
   font-size: 60px;
-  @media (max-width: 500px) {
-    font-size: 12vw;
-    line-height: 12vw;
-  }
 `
 
 const Subtitle = styled('p')`
@@ -108,29 +93,42 @@ interface NavbarProps {
 }
 
 class NavBar extends React.Component<NavbarProps,{}> {
-
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return(
-      <Headroom>
+      <Headroom style={{
+        boxShadow: '1px 1px 1px rgba(0,0,0,0.125)',
+      }}>
         <TitleBackground>
-          <div style={{display: "flex", width: "100%", marginTop: "50px", alignItems: "center", justifyContent: "space-between"}}>
- <div className={css`
+          <div className={css`
             display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            @media (max-width: 1100px) {
+              flex-direction: column;
+              justify-content: center;
+              margin-top: 50px;
+            }
           `}>
-          <NavBarContent>
-            <YearBox>
-              <YearText>20</YearText>
-              <YearText>18</YearText>
-            </YearBox>
-          </NavBarContent>
-          <NavBarContent>
-            <Title>MIDTERM</Title>
-            <Title>ELECTIONS</Title>
-          </NavBarContent>
+          <div className={css`
+            display: flex;
+            width: 440px;
+            height: 140px;
+            @media (max-width: 1100px) {
+              width: 300px;
+              height: 100px;
+            }
+          `}>
+            <NavBarContent>
+              <YearBox>
+                <YearText>20</YearText>
+                <YearText>18</YearText>
+              </YearBox>
+            </NavBarContent>
+            <NavBarContent>
+              <Title>MIDTERM</Title>
+              <Title>ELECTIONS</Title>
+            </NavBarContent>
           </div>
           {
             (this.props.page == 'landing') &&

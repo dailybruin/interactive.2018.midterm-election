@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import { Article, Byline, Footer, Head } from '@dailybruin/lux'
-import ExpandableCard from '../components/ExpandableCard/ExpandableCard'
+import ExpandableCard from '../components/ExpandableCard'
 
 export const query = graphql`
   query {

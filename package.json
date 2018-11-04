@@ -13,6 +13,7 @@
     "daily bruin"
   ],
   "dependencies": {
+    "@dailybruin/gatsby-source-kerckhoff": "^1.0.5",
     "@dailybruin/lux": "^1.3.0",
     "@material-ui/core": "^3.3.2",
     "@types/react": "^16.4.16",
@@ -20,6 +21,7 @@
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-typescript": "^2.0.0",
     "gatsby-plugin-typography": "^2.2.0",
+    "gatsby-source-kerckhoff": "^1.0.0",
     "normalize.css": "^8.0.0",
     "react": "^16.5.2",
     "react-animate-height": "^2.0.6",

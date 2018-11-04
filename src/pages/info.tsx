@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Menu from '../components/Menu';
 import { css } from 'react-emotion'
-import NavBar from '../components/NavBar/Navbar'
+import NavBar from '../components/NavBar'
 
 const infoStyle = css({
     display: 'flex',
