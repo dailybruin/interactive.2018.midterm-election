@@ -48,6 +48,7 @@ const EndorseCircle: React.SFC<IEndorseCircleProps> = ({cardType, sizePx, imgSiz
           margin-left: ${halfDiffPxStr};
           border-radius: 50%;
           z-index: 1;
+          background-color: white;
         `}
         alt="" />
 
