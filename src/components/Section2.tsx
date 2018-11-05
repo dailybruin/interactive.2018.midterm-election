@@ -29,7 +29,7 @@ export default class SectionList extends React.Component<SectionProps, SectionSt
 }
     
     render() {
-        return ({data}) => (
+        return (
             <div>
                 { this.props.cards ? (
                     <div>
