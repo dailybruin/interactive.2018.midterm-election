@@ -36,10 +36,9 @@ export const query = graphql`
 `
 const IndexPage = ({ data }) => (
   <>
-    {console.log(data)}
     <Head {...data.site.siteMetadata} />
     <NavBar/>
-    <Section2 />
+    <Section2 cards={{...data.allKerckhoffArticle.edges}}></Section2>/>
     <IconTable
       heightVW={200}
       backgroundSrc={BackgroundImage}
@@ -58,13 +57,6 @@ const IndexPage = ({ data }) => (
       }]}
       />
     <div className={css`margin: 100px;`}>
-      <EndorseCircle
-        cardType="approve"
-        sizePx={150}
-        imgSizePx={120}
-        imgSrc={S1Outline}
-        title="US SENATOR REPRESENTING CALIFORNIA"
-        />
     </div>
   </>
 )

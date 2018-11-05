@@ -50,7 +50,7 @@ class ExpandableCard extends React.Component<ExpandableCardProps, ExpandableCard
           <h1 className={ css`
             margin: 10px;
             padding-right: 60px;
-        `}>WORK WORK W </h1>
+        `}> {this.props.title} </h1>
         <div style={{zIndex: 1, marginTop: 20, right: -50, float: "right", position: "absolute"}}>
           <EndorseCircle
               cardType={"article"}
