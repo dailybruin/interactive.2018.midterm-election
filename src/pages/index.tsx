@@ -56,6 +56,15 @@ const IndexPage = ({ data }) => (
         shouldMagnifyOnHover: true,
       }]}
       />
+    <div className={css`margin: 100px;`}>
+      <EndorseCircle
+        isApprove={true}
+        sizePx={150}
+        imgSizePx={120}
+        imgSrc={S1Outline}
+        title="US SENATOR REPRESENTING CALIFORNIA"
+        />
+    </div>
   </>
 )
 
