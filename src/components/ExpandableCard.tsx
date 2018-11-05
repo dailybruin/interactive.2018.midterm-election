@@ -6,6 +6,21 @@ import { Byline } from '@dailybruin/lux'
 import { toSentence } from '@dailybruin/lux'
 import EndorseCircle from './EndorseCircle'
 import S1Outline from '../assets/s1.png'
+import styled from "react-emotion"
+
+const buttonStyle = css({
+  marginTop: 35,
+  widty: 96,
+  backgroundColor: '#1C568C',
+  border: "blue",
+  borderRadius: 3,
+  color: "#FFF",
+  '&:hover' : {
+    boxShadow: '2px 2px 5px 0px rgba(0,0,0,0.75)',
+    transform: "translateY(-1px)",
+    cursor: "pointer"
+  }
+})
 
 interface ExpandableCardProps {
   title: string,
@@ -13,6 +28,7 @@ interface ExpandableCardProps {
   tags: string[],
   photo: any,
   description: string,
+  link: string,
  }
 
 interface ExpandableCardState {
@@ -80,29 +96,14 @@ class ExpandableCard extends React.Component<ExpandableCardProps, ExpandableCard
               color: #96B3CE;
             `}>{this.props.tags.join(", ")}</h4>
             </div>
-            <div>
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Arrow-down.svg"
-                height={20}
-                onClick={this.toggle}
-                className={css`
-                  transform: rotate(${this.state.open ? 180:0}deg);
-                  transition: transform 0.2s linear;
-                  transform-style: preserve-3D;
-                  margin: 0;
-                `}
-              />
-            </div>
           </div>
         </div>
         <AnimateHeight
           duration={ 500 }
           height={ this.state.open ? 'auto' : 0}
         >
-          <p className={css`
-          margin: 10px;
-          `}>{this.props.description}</p>
         </AnimateHeight>
+        <button className={buttonStyle}><a href={this.props.link}>Read More</a></button>
       </div>
 </>
     )

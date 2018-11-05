@@ -46,6 +46,7 @@ export default class SectionList extends React.Component<SectionProps, SectionSt
                                       tags={[this.props.cards[key].node.section]}
                                       photo="https://dailybruin.com/images/2018/10/\web.sp_.mwp_.nbk_.ADX_-640x461.jpg"
                                       description={content}
+                                      link={this.props.cards[key].node.link}
                                     />
                                 </div>);
                             })}
