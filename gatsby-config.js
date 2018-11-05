@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     siteName: 'Midterm Election 2018',
     description: 'A Daily Bruin guide to the 2018 Midterm Election',
-    url: '',
+    url: 'https://features.dailybruin.com/2018/midterm-election/',
   },
   pathPrefix: '/2018/midterm-election',
   plugins: [

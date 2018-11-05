@@ -11,6 +11,7 @@ const RedButton = styled('button')`
   width: 270px;
   align-self: flex-end;
   margin-right: 50px;
+  cursor: pointer;
 `
 const BlueButton = styled('button')`
   background-color: #1C568C;
@@ -19,6 +20,7 @@ const BlueButton = styled('button')`
   width: 170px;
   align-self: flex-end;
   margin-right: 50px;
+  cursor: pointer;
 `
 const LandingText = styled('p')`
   max-width: 600px;
@@ -80,7 +82,7 @@ class NavBar extends React.Component<INavBarProps,{}> {
       <Headroom style={{zIndex: 2}}>
         <TitleBackground>
           <NavBarContent>
-            <img style={{height: "100%", margin: 0}} src={HeaderImg} alt={"midterm election 2018"} onClick={() => navigate("/")}/>
+            <img style={{height: "100%", margin: 0, cursor: "pointer"}} src={HeaderImg} alt={"midterm election 2018"} onClick={() => navigate("/")}/>
           </NavBarContent>
           {useBlueButtonHeader ? 
             <NavBarContent className={css`@media (max-width: 800px) { display: none; }`}>

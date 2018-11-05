@@ -414,6 +414,7 @@ const RedButton = styled('button')`
   border: none;
   width: 270px;
   align-self: flex-end;
+  cursor: pointer;
 `
 
 const IndexPage = ({ data }) => (

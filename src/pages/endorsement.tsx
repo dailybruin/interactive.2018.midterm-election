@@ -12,6 +12,7 @@ const BlueButton = styled('button')`
   border: none;
   width: 270px;
   margin: 20px auto;
+  cursor: pointer;
 `
 
 const BlueLabelText = styled('h1')`
@@ -82,7 +83,7 @@ const EndorsementPage = ({ data }) => {
         </div>
         <BlueLabelText className={css`text-align: center;`}>
           EDITORIAL BOARD ENDORSEMENTS
-        </BlueLabelText>  
+        </BlueLabelText>
       </div>
       <div>
         {nodeGroups.map((group, i) => (
@@ -114,7 +115,6 @@ const EndorsementPage = ({ data }) => {
                       sizePx={200}
                       imgSizePx={150}
                       imgSrc={imgSrc}
-                      title={headline}
                       />
                     <div className={css`
                         margin: 1rem 0;
