@@ -4,7 +4,7 @@ import AnimateHeight from 'react-animate-height'
 //import { RotateCcw } from 'react-feather';
 import { Byline } from '@dailybruin/lux'
 import { toSentence } from '@dailybruin/lux'
-import EndorseCircle from './EndorseCircle.tsx'
+import EndorseCircle from '../EndorseCircle/EndorseCircle.tsx'
 import TestLongCat from './longcat.jpg';
 interface ExpandableCardProps {
   title: string,
