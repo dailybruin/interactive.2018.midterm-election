@@ -36,6 +36,8 @@ export const query = graphql`
     allKerckhoffArticle(filter: {title: {regex: "/./"}}) {
       edges {
         node {
+          readerTitle
+          category
           title
           headline
           author
@@ -50,57 +52,79 @@ export const query = graphql`
   }
 `
 
-const EndorsementPage = ({ data }) => (
-  <>
-    <Head {...data.site.siteMetadata} />
-    <NavBar
-      useBlueButtonHeader={true}
-      buttonLinkSrc={''}
-      blueButtonText={'PROPOSITIONS'}
-      blueLabelText={'DAILY BRUIN ELECTION GUIDE'}
-      />
-    <div className={css`@media (min-width: 800px) { display: none; }`}>
-      <div>
-        <Link to={''} className={css`display: flex;`}>
-          <BlueButton>PROPOSITIONS</BlueButton>
-        </Link>
-      </div>
-      <BlueLabelText className={css`text-align: center;`}>
-        DAILY BRUIN ELECTION GUIDE
-      </BlueLabelText>  
-    </div>
-    <div className={css`
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-      `}>
-      {data.allKerckhoffArticle.edges.map((nodeParent, i) => {
-        const node = nodeParent.node;
-        const imgSrc = node.image;
-        const endorsed = String(node.endorsed).toLowerCase() === 'yes';
-        const headline = node.headline;
-        return (
-          <div 
-            className={css`
-              margin: 1rem 1rem;
-            `}
-            key={i}
-            >
-            <EndorseCircle
-              cardType={endorsed ? 'approve' : 'reject'}
-              sizePx={200}
-              imgSizePx={150}
-              imgSrc={imgSrc}
-              title={headline}
-              />
-            <div>
+const EndorsementPage = ({ data }) => {
+  const nodes = data.allKerckhoffArticle.edges.map(n => n.node);
+  const createNodeGroups = (category) => {
+    return [category, nodes.filter(n => {
+      return n.category === category
+    })];
+  };
 
+  const nodeGroups = ['STATE PUBLIC OFFICES', 'NATIONAL PUBLIC OFFICES', 'STATE PROPOSITIONS', 'LOCAL MEASURES'].map(cat => createNodeGroups(cat));
+
+  return (
+    <>
+      <Head {...data.site.siteMetadata} />
+      <NavBar
+        useBlueButtonHeader={true}
+        buttonLinkSrc={''}
+        blueButtonText={'PROPOSITIONS'}
+        blueLabelText={'DAILY BRUIN ELECTION GUIDE'}
+        />
+      <div className={css`@media (min-width: 800px) { display: none; }`}>
+        <div>
+          <Link to={''} className={css`display: flex;`}>
+            <BlueButton>PROPOSITIONS</BlueButton>
+          </Link>
+        </div>
+        <BlueLabelText className={css`text-align: center;`}>
+          DAILY BRUIN ELECTION GUIDE
+        </BlueLabelText>  
+      </div>
+      <div>
+        {nodeGroups.map((group, i) => (
+          <div key={i}>
+            <h3 className={css`margin-left: 2rem;`}>{group[0]}</h3>
+            <div
+              className={css`
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+              `}>
+              {group[1].map((node, i) => {
+                const imgSrc = node.image;
+                const endorsed = String(node.endorsed).toLowerCase() === 'yes';
+                const headline = node.headline;
+                return (
+                  <div 
+                    className={css`
+                      margin: 1rem 1rem;
+                    `}
+                    key={i}
+                    >
+                    <EndorseCircle
+                      cardType={endorsed ? 'approve' : 'reject'}
+                      sizePx={200}
+                      imgSizePx={150}
+                      imgSrc={imgSrc}
+                      title={headline}
+                      />
+                    <div className={css`
+                        margin: 1rem 0;
+                        text-align: center;
+                        font-size: 1.5rem;
+                      `}>
+                      {node.readerTitle}
+                    </div>
+                  </div>
+                )
+              })}
             </div>
           </div>
-        )
-      })}
-    </div>
-  </>
-)
+        ))}
+      </div>
+    </>
+  )
+}
 
 export default EndorsementPage;
