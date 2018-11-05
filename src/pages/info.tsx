@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Menu from '../components/Menu';
 import { css } from 'react-emotion'
+import NavBar from '../components/NavBar'
 
 const infoStyle = css({
     display: 'flex',
@@ -19,7 +20,7 @@ class InfoPage extends React.Component {
     render() {
         return (
             <div className={infoStyle}>
-                    <Menu></Menu>
+                <NavBar page={'info'}></NavBar>
             </div>
         )
     }

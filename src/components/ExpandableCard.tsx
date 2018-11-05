@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { css } from 'react-emotion'
 import AnimateHeight from 'react-animate-height'
-import { RotateCcw } from 'react-feather';
+//import { RotateCcw } from 'react-feather';
 import { Byline } from '@dailybruin/lux'
 import { toSentence } from '@dailybruin/lux'
 import EndorseCircle from '../EndorseCircle/EndorseCircle.tsx'
@@ -35,7 +35,8 @@ class ExpandableCard extends React.Component<ExpandableCardProps, ExpandableCard
     return(
       <>
       <div className={css`
-        width: 100%;
+        width: 300px;
+        height: 200px;
         display: flex;
         flex-direction: column;
         background-color: #FAFAFA;
@@ -88,7 +89,17 @@ class ExpandableCard extends React.Component<ExpandableCardProps, ExpandableCard
               />
             </div>
           </div>
+<<<<<<< HEAD:src/components/ExpandableCard/ExpandableCard.tsx
 
+=======
+          <div className={css`
+            background-image: url(${this.props.photo});
+            background-size: cover;
+            margin: 0px;
+            height: 100px;
+            width: 100px;
+          `}/>
+>>>>>>> master:src/components/ExpandableCard.tsx
         </div>
         <AnimateHeight
           duration={ 500 }
