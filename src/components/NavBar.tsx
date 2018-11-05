@@ -84,7 +84,7 @@ class NavBar extends React.Component<INavBarProps,{}> {
           </NavBarContent>
           {useBlueButtonHeader ? 
             <NavBarContent className={css`@media (max-width: 800px) { display: none; }`}>
-              <Link to={this.props.buttonLinkSrc || '#'}>
+              <Link to={this.props.buttonLinkSrc || '/endorsement'}>
                 <BlueButton >DAILY BRUIN ENDORSEMENTS</BlueButton>
               </Link>
               <BlueLabelText>
@@ -96,7 +96,7 @@ class NavBar extends React.Component<INavBarProps,{}> {
               <LandingText>
                 THE DAILY BRUIN’S 2018 MIDTERM ELECTION GUIDE: Click on the illustration below to see read about local, state, and national races or view our list of endorsements.
               </LandingText>
-              <Link to={this.props.buttonLinkSrc || '#'}>
+              <Link to={this.props.buttonLinkSrc || '/endorsement'}>
                 <RedButton>DAILY BRUIN ENDORSEMENTS</RedButton>
               </Link>
             </NavBarContent>

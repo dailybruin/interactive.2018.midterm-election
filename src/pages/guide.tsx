@@ -68,7 +68,14 @@ const GuidePage = ({ data }) => (
         DAILY BRUIN ELECTION GUIDE
       </BlueLabelText>  
     </div>
-    <Section2 cards={{...data.allKerckhoffArticle.edges}} />
+    <BlueLabelText className={css`text-align: center;`}>
+        PROPOSITIONS
+    </BlueLabelText> 
+    <Section2 cards={{...data.allKerckhoffArticle.edges}} section={"prop"} />
+    <BlueLabelText className={css`text-align: center;`}>
+        ARTICLES
+    </BlueLabelText> 
+    <Section2 cards={{...data.allKerckhoffArticle.edges}} section={"article"} />
   </>
 )
 

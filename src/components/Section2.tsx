@@ -11,7 +11,8 @@ interface CardProps {
 interface SectionProps {
     title?: string,
     cardData?: CardProps[], //for now, not exactly sure how we are pulling data
-    cards?: any[]
+    cards?: any[],
+    section: string
 }
 
 interface SectionState {
@@ -35,11 +36,14 @@ export default class SectionList extends React.Component<SectionProps, SectionSt
                     <div>
                         <div className={gridStyle}>
                             { Object.keys(this.props.cards).map(key => {
+                                if(this.props.cards[key].node.title.substring(0, this.props.section.length) != this.props.section){
+                                    return <div></div>
+                                }
                                 let content = "";
                                 this.props.cards[key].node.content.map(text => {
                                     content += text.value
                                 })
-                                return(<div style={{margin : 30}} key={key}>
+                                return(<div style={{margin : 50}} key={key}>
                                     <ExpandableCard
                                       title={this.props.cards[key].node.headline}
                                       authors={[this.props.cards[key].node.author]}
