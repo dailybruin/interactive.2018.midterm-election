@@ -2,6 +2,7 @@ import * as React from 'react'
 import styled, {css} from 'react-emotion'
 import Headroom from 'react-headroom'
 import HeaderImg from '../assets/header.png';
+import { Link } from 'gatsby';
 
 const RedButton = styled('button')`
   background-color: #CF5F5F;
@@ -65,7 +66,7 @@ const NavBarContent = styled('div')`
 
 interface INavBarProps {
   useBlueButtonHeader?: boolean;
-  onButtonClick?: (event: React.MouseEvent) => void;
+  buttonLinkSrc?: string;
   blueButtonText?: string;
   blueLabelText?: string;
 }
@@ -74,7 +75,6 @@ class NavBar extends React.Component<INavBarProps,{}> {
 
   render() {
     const useBlueButtonHeader = !!this.props.useBlueButtonHeader;
-    const onButtonClick = this.props.onButtonClick || (() => {});
 
     return(
       <Headroom style={{zIndex: 2}}>
@@ -84,7 +84,9 @@ class NavBar extends React.Component<INavBarProps,{}> {
           </NavBarContent>
           {useBlueButtonHeader ? 
             <NavBarContent className={css`@media (max-width: 800px) { display: none; }`}>
-              <BlueButton onClick={onButtonClick}>DAILY BRUIN ENDORSEMENTS</BlueButton>
+              <Link to={this.props.buttonLinkSrc || '#'}>
+                <BlueButton >DAILY BRUIN ENDORSEMENTS</BlueButton>
+              </Link>
               <BlueLabelText>
                 {this.props.blueLabelText || 'DUMMY TEXT'}
               </BlueLabelText>
@@ -94,7 +96,9 @@ class NavBar extends React.Component<INavBarProps,{}> {
               <LandingText>
                 THE DAILY BRUIN’S 2018 MIDTERM ELECTION GUIDE: Click on the illustration below to see read about local, state, and national races or view our list of endorsements.
               </LandingText>
-              <RedButton>DAILY BRUIN ENDORSEMENTS</RedButton>
+              <Link to={this.props.buttonLinkSrc || '#'}>
+                <RedButton>DAILY BRUIN ENDORSEMENTS</RedButton>
+              </Link>
             </NavBarContent>
           }
         </TitleBackground>
