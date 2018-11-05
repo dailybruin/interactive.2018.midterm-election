@@ -7,7 +7,7 @@ import styled from "react-emotion"
 
 const buttonStyle = css({
   margin: 10,
-  width: 100,
+  width: 175,
   backgroundColor: '#1C568C',
   border: "blue",
   borderRadius: 3,

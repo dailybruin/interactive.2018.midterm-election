@@ -8,7 +8,7 @@ const RedButton = styled('button')`
   background-color: #CF5F5F;
   color: white;
   border: none;
-  width: 270px;
+  width: 350px;
   align-self: flex-end;
   margin-right: 50px;
   cursor: pointer;
@@ -101,7 +101,7 @@ class NavBar extends React.Component<INavBarProps,{}> {
                 THE DAILY BRUIN’S 2018 MIDTERM ELECTION GUIDE: Click on the illustration below to read our coverage of the local, state, and national races or view our list of endorsements.
               </LandingText>
               <Link to={this.props.buttonLinkSrc || '/endorsement'}>
-                <RedButton>DAILY BRUIN ENDORSEMENTS</RedButton>
+                <RedButton>ENDORSEMENTS: TELL ME HOW TO VOTE</RedButton>
               </Link>
             </NavBarContent>
           }

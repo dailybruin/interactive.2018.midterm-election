@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Link, graphql, navigate } from 'gatsby'
-import { Head } from '@dailybruin/lux'
+import { Head, Footer } from '@dailybruin/lux'
 import IconTable from '../components/IconTable'
 import NavBar from '../components/NavBar'
 import styled, {css} from 'react-emotion'
@@ -412,7 +412,7 @@ const RedButton = styled('button')`
   background-color: #CF5F5F;
   color: white;
   border: none;
-  width: 270px;
+  width: 350px;
   align-self: flex-end;
   cursor: pointer;
 `
@@ -422,6 +422,7 @@ const IndexPage = ({ data }) => (
     <Head
       {...data.site.siteMetadata}
       image={require('../assets/desktop/desktop\ home\ template.png')}
+      pageName="Landing"
     />
     <NavBar/>
     <div className={css`
@@ -440,10 +441,15 @@ const IndexPage = ({ data }) => (
       <Link className={css`
         margin-top: 5px;
       `} to={'/endorsement'}>
-        <RedButton>DAILY BRUIN ENDORSEMENTS</RedButton>
+        <RedButton>ENDORSEMENTS: TELL ME HOW TO VOTE</RedButton>
       </Link>
       </div>
     <FilledIconTable />
+    <Footer
+      githubName={'interactive.2018.midterm-election/'}
+      developers={['Max Wu', 'Richard Yang', 'Karl Huang', 'Mindi Cao', 'Kevin Qian']}
+      copyrightYear={2018}
+    />
   </>
 )
 export default IndexPage

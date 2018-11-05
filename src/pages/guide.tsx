@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled, {css} from 'react-emotion'
 import { graphql } from 'gatsby'
-import { Head } from '@dailybruin/lux'
+import { Head, Footer } from '@dailybruin/lux'
 import NavBar from '../components/NavBar'
 import { Link } from 'gatsby';
 import Section2 from '../components/Section2';
@@ -55,7 +55,7 @@ export const query = graphql`
 
 const GuidePage = ({ data }) => (
   <>
-    <Head {...data.site.siteMetadata} />
+    <Head {...data.site.siteMetadata} pageName="Guide"/>
     <NavBar
       useBlueButtonHeader={true}
       buttonLinkSrc={'/'}
@@ -88,6 +88,11 @@ const GuidePage = ({ data }) => (
         ARTICLES
     </h2> 
     <Section2 cards={{...data.allKerckhoffArticle.edges}} section={"article"} />
+    <Footer
+      githubName={'interactive.2018.midterm-election/'}
+      developers={['Max Wu', 'Richard Yang', 'Karl Huang', 'Mindi Cao', 'Kevin Qian']}
+      copyrightYear={2018}
+    />
   </>
 )
 

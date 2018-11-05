@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled, {css} from 'react-emotion'
 import { graphql } from 'gatsby'
-import { Head } from '@dailybruin/lux'
+import { Head, Footer } from '@dailybruin/lux'
 import NavBar from '../components/NavBar'
 import { Link } from 'gatsby';
 import EndorseCircle from '../components/EndorseCircle';
@@ -66,7 +66,7 @@ const EndorsementPage = ({ data }) => {
 
   return (
     <>
-      <Head {...data.site.siteMetadata} />
+      <Head {...data.site.siteMetadata} pageName="Endorsements"/>
       <NavBar
         useBlueButtonHeader={true}
         buttonLinkSrc={'/'}
@@ -130,6 +130,11 @@ const EndorsementPage = ({ data }) => {
           </div>
         ))}
       </div>
+      <Footer
+        githubName={'interactive.2018.midterm-election/'}
+        developers={['Max Wu', 'Richard Yang', 'Karl Huang', 'Mindi Cao', 'Kevin Qian']}
+        copyrightYear={2018}
+      />
     </>
   )
 }
