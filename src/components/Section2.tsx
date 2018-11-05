@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import ExpandableCard from './ExpandableCard'
 import { FileText } from 'react-feather';
-
+import styled, {css} from 'react-emotion'
 interface CardProps {
     /* Props of card component */
 }
@@ -16,6 +16,13 @@ interface SectionProps {
 interface SectionState {
     cards: number[]
 }
+
+const gridStyle = css({
+    display: 'flex',
+    justifyContent: "center",
+    flexWrap: "wrap",
+    margin: "auto"
+})
 
 export default class SectionList extends React.Component<SectionProps, SectionState> {
   constructor(props) {
@@ -30,9 +37,9 @@ export default class SectionList extends React.Component<SectionProps, SectionSt
             <div>
                 { this.state.cards ? (
                     <div>
-                        <Grid container justify="center" spacing={24} style={{padding: 16}}>
+                        <div className={gridStyle}>
                             { this.state.cards.map((currentCard,index) => (
-                                <Grid item md={4} key={index}>
+                                <div style={{margin : 30}}key={index}>
                                     <ExpandableCard
                                       title="title testing"
                                       authors={["ryang"]}
@@ -41,11 +48,10 @@ export default class SectionList extends React.Component<SectionProps, SectionSt
                                       description="this is a description
                                       fdasdkfjadskfjkasdfjkasdjfksdajfkjdsakfjakdsjfkadjsfkasdjfk
                                       dfkjasdkfjadslkfjadkljfkladsjfkl"
-                                      height={200}
                                     />
-                                </Grid>
+                                </div>
                             ))}
-                        </Grid>
+                        </div>
                     </div>
                 ) : "No cards found" }
             </div>

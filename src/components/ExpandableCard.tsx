@@ -4,16 +4,17 @@ import AnimateHeight from 'react-animate-height'
 //import { RotateCcw } from 'react-feather';
 import { Byline } from '@dailybruin/lux'
 import { toSentence } from '@dailybruin/lux'
-import EndorseCircle from '../EndorseCircle/EndorseCircle.tsx'
+import EndorseCircle from './EndorseCircle/EndorseCircle'
 import TestLongCat from './longcat.jpg';
+import S1Outline from '../assets/s1.png'
+
 interface ExpandableCardProps {
   title: string,
   authors: string[],
   tags: string[],
   photo: any,
   description: string,
-  height: number,
-}
+ }
 
 interface ExpandableCardState {
   open: boolean
@@ -36,12 +37,10 @@ class ExpandableCard extends React.Component<ExpandableCardProps, ExpandableCard
       <>
       <div className={css`
         width: 300px;
-        height: 200px;
         display: flex;
         flex-direction: column;
         background-color: #FAFAFA;
-
-
+        float: left;
       `}>
         <div className={ css`
           display: flex;
@@ -52,8 +51,16 @@ class ExpandableCard extends React.Component<ExpandableCardProps, ExpandableCard
         `}>
           <h1 className={ css`
             margin: 10px;
-            vertical-align: middle;
-        `}>WORK WORK WORK </h1>
+            padding-right: 60px;
+        `}>WORK WORK W </h1>
+        <div style={{zIndex: 1, marginTop: 20, right: -50, float: "right", position: "absolute"}}>
+          <EndorseCircle
+              cardType={"article"}
+              sizePx={150}
+              imgSizePx={120}
+              imgSrc={S1Outline}>
+          </EndorseCircle>
+        </div>
         </div>
         <div className={css`
           display: flex;
@@ -89,13 +96,6 @@ class ExpandableCard extends React.Component<ExpandableCardProps, ExpandableCard
               />
             </div>
           </div>
-          <div className={css`
-            background-image: url(${this.props.photo});
-            background-size: cover;
-            margin: 0px;
-            height: 100px;
-            width: 100px;
-          `}/>
         </div>
         <AnimateHeight
           duration={ 500 }
