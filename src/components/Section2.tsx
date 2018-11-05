@@ -44,6 +44,7 @@ export default class SectionList extends React.Component<SectionProps, SectionSt
                                     content += text.value
                                 })
                                 return(<div style={{margin : 50}} key={key}>
+                                    {console.log(this.props.cards[key].node)}
                                     <ExpandableCard
                                       title={this.props.cards[key].node.headline}
                                       authors={[this.props.cards[key].node.author]}

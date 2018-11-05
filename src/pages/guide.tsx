@@ -40,6 +40,7 @@ export const query = graphql`
           headline
           author
           endorsed
+          image
           content {
             type
             value

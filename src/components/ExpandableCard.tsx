@@ -5,7 +5,6 @@ import AnimateHeight from 'react-animate-height'
 import { Byline } from '@dailybruin/lux'
 import { toSentence } from '@dailybruin/lux'
 import EndorseCircle from './EndorseCircle'
-import S1Outline from '../assets/s1.png'
 import styled from "react-emotion"
 
 const buttonStyle = css({
@@ -89,7 +88,7 @@ class ExpandableCard extends React.Component<ExpandableCardProps, ExpandableCard
               cardType={this.props.endorsed == "yes" ? "approve" : (this.props.endorsed == "no"  ? "reject": "article") }
               sizePx={150}
               imgSizePx={120}
-              imgSrc={S1Outline}>
+              imgSrc={this.props.photo}>
           </EndorseCircle>
         </div>
         </div>
