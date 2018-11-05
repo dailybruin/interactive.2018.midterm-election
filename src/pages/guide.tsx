@@ -39,6 +39,7 @@ export const query = graphql`
           title
           headline
           author
+          image
           content {
             type
             value

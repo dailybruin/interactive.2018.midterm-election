@@ -11,7 +11,7 @@ interface IEndorseCircleProps {
 
 const approveColors = ['#84B9A6', '#78AD9A'];
 const rejectColors = ['#D17B7B', '#C66D6D'];
-const articleColors = ['#E6E6E6', '#E6E6E6'];
+const articleColors = ['#E6E6E6', '#DEDEDE'];
 
 const EndorseCircle: React.SFC<IEndorseCircleProps> = ({cardType, sizePx, imgSizePx,imgSrc}) => {
   let colors;
