@@ -376,15 +376,6 @@ const IndexPage = ({ data }) => (
   <>
     <Head {...data.site.siteMetadata} />
     <NavBar/>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    {/* <Section2 cards={{...data.allKerckhoffArticle.edges}}/> */}
-=======
-    <Section2 cards={{...data.allKerckhoffArticle.edges}} section={""}/>
->>>>>>> finish up guide page, also navbar
-=======
-    <Section2 cards={{...data.allKerckhoffArticle.edges}} section={""}/>
->>>>>>> a34a8ab829f4e7fd5c6c2544aaebe5c6f2ba3de5
     <FilledIconTable />
   </>
 )
