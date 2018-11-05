@@ -4,6 +4,8 @@ import AnimateHeight from 'react-animate-height'
 //import { RotateCcw } from 'react-feather';
 import { Byline } from '@dailybruin/lux'
 import { toSentence } from '@dailybruin/lux'
+import EndorseCircle from '../EndorseCircle/EndorseCircle.tsx'
+import TestLongCat from './longcat.jpg';
 interface ExpandableCardProps {
   title: string,
   authors: string[],
@@ -31,23 +33,27 @@ class ExpandableCard extends React.Component<ExpandableCardProps, ExpandableCard
   render() {
     console.log(this.props)
     return(
+      <>
       <div className={css`
         width: 300px;
         height: 200px;
         display: flex;
         flex-direction: column;
         background-color: #FAFAFA;
+
+
       `}>
         <div className={ css`
           display: flex;
           background-color: #96B3CE;
           color: white;
           align-items: center;
+          position:relative
         `}>
           <h1 className={ css`
             margin: 10px;
             vertical-align: middle;
-        `}>{this.props.title}</h1>
+        `}>WORK WORK WORK </h1>
         </div>
         <div className={css`
           display: flex;
@@ -100,6 +106,7 @@ class ExpandableCard extends React.Component<ExpandableCardProps, ExpandableCard
           `}>{this.props.description}</p>
         </AnimateHeight>
       </div>
+</>
     )
   }
 }
