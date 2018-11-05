@@ -22,6 +22,7 @@ const BlueLabelText = styled('h1')`
   letter-spacing: -1px;
   color: #1C568C;
   text-align: right;
+  margin-bottom: 50px;
 `
 
 export const query = graphql`
@@ -41,6 +42,7 @@ export const query = graphql`
           author
           endorsed
           image
+          link
           content {
             type
             value
@@ -56,27 +58,35 @@ const GuidePage = ({ data }) => (
     <Head {...data.site.siteMetadata} />
     <NavBar
       useBlueButtonHeader={true}
-      buttonLinkSrc={''}
+      buttonLinkSrc={'/'}
       blueButtonText={'PROPOSITIONS'}
       blueLabelText={'DAILY BRUIN ELECTION GUIDE'}
       />
     <div className={css`@media (min-width: 800px) { display: none; }`}>
       <div>
         <Link to={''} className={css`display: flex;`}>
-          <BlueButton>PROPOSITIONS</BlueButton>
+          <BlueButton>RETURN TO GUIDE</BlueButton>
         </Link>
       </div>
       <BlueLabelText className={css`text-align: center;`}>
         DAILY BRUIN ELECTION GUIDE
-      </BlueLabelText>  
+      </BlueLabelText>
     </div>
-    <BlueLabelText className={css`text-align: center;`}>
+    <h2 className={css`text-align: center;`}>
+        OFFICIALS
+    </h2> 
+    <Section2 cards={{...data.allKerckhoffArticle.edges}} section={"official"} />
+    <h2 className={css`text-align: center;`}>
         PROPOSITIONS
-    </BlueLabelText> 
+    </h2> 
     <Section2 cards={{...data.allKerckhoffArticle.edges}} section={"prop"} />
-    <BlueLabelText className={css`text-align: center;`}>
+    <h2 className={css`text-align: center;`}>
+        MEASURES
+    </h2> 
+    <Section2 cards={{...data.allKerckhoffArticle.edges}} section={"measure"} />
+    <h2 className={css`text-align: center;`}>
         ARTICLES
-    </BlueLabelText> 
+    </h2> 
     <Section2 cards={{...data.allKerckhoffArticle.edges}} section={"article"} />
   </>
 )

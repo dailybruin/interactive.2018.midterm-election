@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled, {css} from 'react-emotion'
 import Headroom from 'react-headroom'
 import HeaderImg from '../assets/header.png';
-import { Link } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 
 const RedButton = styled('button')`
   background-color: #CF5F5F;
@@ -16,7 +16,7 @@ const BlueButton = styled('button')`
   background-color: #1C568C;
   color: white;
   border: none;
-  width: 270px;
+  width: 170px;
   align-self: flex-end;
   margin-right: 50px;
 `
@@ -80,12 +80,14 @@ class NavBar extends React.Component<INavBarProps,{}> {
       <Headroom style={{zIndex: 2}}>
         <TitleBackground>
           <NavBarContent>
-            <img style={{height: "100%", margin: 0}} src={HeaderImg}/>
+            <img style={{height: "100%", margin: 0}} src={HeaderImg} onClick={() => navigate("/")}/>
           </NavBarContent>
           {useBlueButtonHeader ? 
             <NavBarContent className={css`@media (max-width: 800px) { display: none; }`}>
-              <Link to={this.props.buttonLinkSrc || '/endorsement'}>
-                <BlueButton >DAILY BRUIN ENDORSEMENTS</BlueButton>
+              <Link to={this.props.buttonLinkSrc || '/endorsement'} className={css`
+                align-self: flex-end;
+              `}>
+                <BlueButton>RETURN TO GUIDE</BlueButton>
               </Link>
               <BlueLabelText>
                 {this.props.blueLabelText || 'DUMMY TEXT'}
@@ -94,7 +96,7 @@ class NavBar extends React.Component<INavBarProps,{}> {
             :
             <NavBarContent className={css`@media (max-width: 800px) { display: none; }`}>
               <LandingText>
-                THE DAILY BRUIN’S 2018 MIDTERM ELECTION GUIDE: Click on the illustration below to see read about local, state, and national races or view our list of endorsements.
+                THE DAILY BRUIN’S 2018 MIDTERM ELECTION GUIDE: Click on the illustration below to read our coverage of the local, state, and national races or view our list of endorsements.
               </LandingText>
               <Link to={this.props.buttonLinkSrc || '/endorsement'}>
                 <RedButton>DAILY BRUIN ENDORSEMENTS</RedButton>

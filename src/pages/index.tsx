@@ -1,12 +1,9 @@
 import * as React from 'react'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import { Head } from '@dailybruin/lux'
 import IconTable from '../components/IconTable'
 import NavBar from '../components/NavBar'
-import EndorseCircle from '../components/EndorseCircle'
-import Section2 from "../components/Section2"
-import S1Outline from '../assets/s1.png'
-import {css} from 'emotion'
+import styled, {css} from 'react-emotion'
 
 // Temps, replace with kerckhoff
 import DesktopBackground from '../assets/desktop/desktop\ home\ background.png';
@@ -120,7 +117,7 @@ class FilledIconTable extends React.Component<{}, IFilledIconTableState> {
         left: 38,
         top: 57,
         width: 28,
-        shouldMagnifyOnHover: true,
+        shouldMagnifyOnHover: false,
       }, {
         src: i.capitol,
         left: 35,
@@ -372,10 +369,42 @@ class FilledIconTable extends React.Component<{}, IFilledIconTableState> {
   }
 }
 
+const LandingText = styled('p')`
+  max-width: 600px;
+  margin: 0px;
+`
+
+const RedButton = styled('button')`
+  background-color: #CF5F5F;
+  color: white;
+  border: none;
+  width: 270px;
+  align-self: flex-end;
+`
+
 const IndexPage = ({ data }) => (
   <>
     <Head {...data.site.siteMetadata} />
     <NavBar/>
+    <div className={css`
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 20px;
+      margin-bottom: 50px;
+      text-align: center;
+      @media (min-width: 800px) { display: none; }
+    `}>
+      <LandingText>
+        THE DAILY BRUIN’S 2018 MIDTERM ELECTION GUIDE: Click on the illustration below to read our coverage of the local, state, and national races or view our list of endorsements.
+      </LandingText>
+      <Link className={css`
+        margin-top: 5px;
+      `} to={'/endorsement'}>
+        <RedButton>DAILY BRUIN ENDORSEMENTS</RedButton>
+      </Link>
+      </div>
     <FilledIconTable />
   </>
 )

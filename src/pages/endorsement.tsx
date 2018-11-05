@@ -41,6 +41,7 @@ export const query = graphql`
           title
           headline
           author
+          endorsed
           content {
             type
             value
@@ -67,18 +68,20 @@ const EndorsementPage = ({ data }) => {
       <Head {...data.site.siteMetadata} />
       <NavBar
         useBlueButtonHeader={true}
-        buttonLinkSrc={''}
-        blueButtonText={'PROPOSITIONS'}
-        blueLabelText={'DAILY BRUIN ELECTION GUIDE'}
+        buttonLinkSrc={'/'}
+        blueButtonText={'RETURN TO GUIDE'}
+        blueLabelText={'EDITORIAL BOARD ENDORSEMENTS'}
         />
-      <div className={css`@media (min-width: 800px) { display: none; }`}>
+      <div className={css`
+        @media (min-width: 800px) { display: none; }
+      `}>
         <div>
-          <Link to={''} className={css`display: flex;`}>
-            <BlueButton>PROPOSITIONS</BlueButton>
+          <Link to={'/'} className={css`display: flex;`}>
+            <BlueButton>RETURN TO GUIDE</BlueButton>
           </Link>
         </div>
         <BlueLabelText className={css`text-align: center;`}>
-          DAILY BRUIN ELECTION GUIDE
+          EDITORIAL BOARD ENDORSEMENTS
         </BlueLabelText>  
       </div>
       <div>
@@ -94,11 +97,16 @@ const EndorsementPage = ({ data }) => {
               {group[1].map((node, i) => {
                 const imgSrc = node.image;
                 const endorsed = String(node.endorsed).toLowerCase() === 'yes';
+                console.log(endorsed)
                 const headline = node.headline;
                 return (
                   <div 
                     className={css`
                       margin: 1rem 1rem;
+                      display: flex;
+                      flex-direction: column;
+                      justify-content: center;
+                      align-items: center;
                     `}
                     key={i}
                     >
