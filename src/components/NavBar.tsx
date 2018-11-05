@@ -73,7 +73,7 @@ interface INavBarProps {
 class NavBar extends React.Component<INavBarProps,{}> {
 
   render() {
-    const useBlueButtonHeader = true || !!this.props.useBlueButtonHeader;
+    const useBlueButtonHeader = !!this.props.useBlueButtonHeader;
     const onButtonClick = this.props.onButtonClick || (() => {});
 
     return(
