@@ -60,7 +60,7 @@ const EndorsementPage = ({ data }) => {
     })];
   };
 
-  const nodeGroups = ['STATE PUBLIC OFFICES', 'NATIONAL PUBLIC OFFICES', 'STATE PROPOSITIONS', 'LA MEASURES'].map(cat => createNodeGroups(cat));
+  const nodeGroups = ['STATE PUBLIC OFFICES', 'NATIONAL PUBLIC OFFICES', 'STATE PROPOSITIONS', 'LOCAL MEASURES'].map(cat => createNodeGroups(cat));
 
   return (
     <>
