@@ -19,26 +19,27 @@ export const query = graphql`
         url
       }
     }
-    kerckhoffArticle {
-      headline
-      author
-      image
-      section
-      endorsed
-      link
-      content {
-        type
-        value
+    allKerckhoffArticle(filter: {title: {regex: "/./"}}) {
+      edges {
+        node {
+          title
+          headline
+          author
+          content {
+            type
+            value
+          }
+        }
       }
     }
   }
 `
 const IndexPage = ({ data }) => (
   <>
-    <Head {...data.site.siteMetadata} />
-    <NavBar page="landing" />
-    <Section2 />
     {console.log(data)}
+    <Head {...data.site.siteMetadata} />
+    <NavBar/>
+    <Section2 />
     <IconTable
       heightVW={200}
       backgroundSrc={BackgroundImage}
@@ -58,7 +59,7 @@ const IndexPage = ({ data }) => (
       />
     <div className={css`margin: 100px;`}>
       <EndorseCircle
-        isApprove={true}
+        cardType="approve"
         sizePx={150}
         imgSizePx={120}
         imgSrc={S1Outline}

@@ -20,7 +20,7 @@ class InfoPage extends React.Component {
     render() {
         return (
             <div className={infoStyle}>
-                <NavBar page={'info'}></NavBar>
+                <NavBar></NavBar>
             </div>
         )
     }
