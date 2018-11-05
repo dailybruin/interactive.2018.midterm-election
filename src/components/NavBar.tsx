@@ -11,10 +11,28 @@ const RedButton = styled('button')`
   align-self: flex-end;
   margin-right: 50px;
 `
+const BlueButton = styled('button')`
+  background-color: #1C568C;
+  color: white;
+  border: none;
+  width: 270px;
+  align-self: flex-end;
+  margin-right: 50px;
+`
 const LandingText = styled('p')`
   max-width: 600px;
   margin: 0px;
   margin-right: 50px;
+`
+const BlueLabelText = styled('h1')`
+  max-width: 600px;
+  margin-top: 20px;
+  font-weight: 900;
+  font-size: 40px;
+  letter-spacing: -1px;
+  color: #1C568C;
+  margin-right: 50px;
+  text-align: right;
 `
 const TitleBackground = styled('div')`
   width: 100%;
@@ -46,21 +64,40 @@ justify-content: center;
 }
 `
 
-class NavBar extends React.Component<{},{}> {
+interface INavBarProps {
+  useBlueButtonHeader?: boolean;
+  onButtonClick?: (event: React.MouseEvent) => void;
+  blueButtonText?: string;
+  blueLabelText?: string;
+}
+
+class NavBar extends React.Component<INavBarProps,{}> {
 
   render() {
+    const useBlueButtonHeader = true || !!this.props.useBlueButtonHeader;
+    const onButtonClick = this.props.onButtonClick || (() => {});
+
     return(
       <Headroom style={{zIndex: 2}}>
         <TitleBackground>
           <NavBarContent>
             <img style={{height: "100%", margin: 0}} src={HeaderImg}/>
           </NavBarContent>
-          <NavBarContent>
-            <LandingText>
-              THE DAILY BRUIN’S 2018 MIDTERM ELECTION GUIDE: Click on the illustration below to see read about local, state, and national races or view our list of endorsements.
-            </LandingText>
-            <RedButton>DAILY BRUIN ENDORSEMENTS</RedButton>
-          </NavBarContent>
+          {useBlueButtonHeader ? 
+            <NavBarContent className={css`@media (max-width: 800px) { display: none; }`}>
+              <BlueButton onClick={onButtonClick}>DAILY BRUIN ENDORSEMENTS</BlueButton>
+              <BlueLabelText>
+                {this.props.blueLabelText || 'DUMMY TEXT'}
+              </BlueLabelText>
+            </NavBarContent>
+            :
+            <NavBarContent className={css`@media (max-width: 800px) { display: none; }`}>
+              <LandingText>
+                THE DAILY BRUIN’S 2018 MIDTERM ELECTION GUIDE: Click on the illustration below to see read about local, state, and national races or view our list of endorsements.
+              </LandingText>
+              <RedButton>DAILY BRUIN ENDORSEMENTS</RedButton>
+            </NavBarContent>
+          }
         </TitleBackground>
       </Headroom>
     )
