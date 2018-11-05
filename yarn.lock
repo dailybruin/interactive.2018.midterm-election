@@ -808,9 +808,9 @@
     to-fast-properties "^2.0.0"
 
 "@dailybruin/gatsby-source-kerckhoff@^1.0.5":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@dailybruin/gatsby-source-kerckhoff/-/gatsby-source-kerckhoff-1.1.0.tgz#91a5bbad97b8e3805a494235b8fcb3e42c6020f5"
-  integrity sha512-G7cduS7ZO1moyfQX8mo77r+JEOWonCfEN/vAoKD1xn2Zw2kWUVZcJk9wO0BJHHqyjrbzgNP8Xw+AbRd2CfnyDA==
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@dailybruin/gatsby-source-kerckhoff/-/gatsby-source-kerckhoff-1.1.1.tgz#cdf751a789e0626875588b8d8f28efbfb8b9ead7"
+  integrity sha512-kkLWK+sPdf1vbEQI9Eg2y1KNrmZhFq+8X6mAol6RsTSKVTBRh63pgzpLNNW6g0rMaSBT0+LrMvenktATBf/n0g==
   dependencies:
     "@types/node" "^10.12.1"
     "@types/node-fetch" "^2.1.2"
@@ -2474,9 +2474,9 @@ cacache@^10.0.4:
     y18n "^4.0.0"
 
 cacache@^11.0.2:
-  version "11.2.0"
-  resolved "https://registry.yarnpkg.com/cacache/-/cacache-11.2.0.tgz#617bdc0b02844af56310e411c0878941d5739965"
-  integrity sha512-IFWl6lfK6wSeYCHUXh+N1lY72UDrpyrYQJNIVQf48paDuWbv5RbAtJYf/4gUQFObTCHZwdZ5sI8Iw7nqwP6nlQ==
+  version "11.3.0"
+  resolved "https://registry.yarnpkg.com/cacache/-/cacache-11.3.0.tgz#c37d4c12e3114064becf8904adba039a5befd4fd"
+  integrity sha512-6Af/h56f+GXGAuxfutTZGxOofff+PfaZ3K0XlXjMAzS8HHijzNYySP8zHrJ0vniSzd4wrMgwOHegWh695pHSRA==
   dependencies:
     bluebird "^3.5.1"
     chownr "^1.0.1"
@@ -2562,9 +2562,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000844, caniuse-lite@^1.0.30000864, caniuse-lite@^1.0.30000899:
-  version "1.0.30000904"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000904.tgz#4445d00da859a0e0ae6dbb2876c545f3324f6c74"
-  integrity sha512-M4sXvogCoY5Fp6fuXIaQG/MIexlEFQ3Lgwban+KlqiQUbUIkSmjAB8ZJIP79aj2cdqz2F1Lb+Z+5GwHvCrbLtg==
+  version "1.0.30000905"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000905.tgz#8f731ecf5b8553c7154a691c3df3a635a1a3fda5"
+  integrity sha512-cR6ICguvhRrkAjFfBoe54vJQMVOEz7vFmqrV6oor1a7GRg6DdswI40lkiV/QQvAMb4txzTkjSaLaJaiAtSuQzA==
 
 capture-stack-trace@^1.0.0:
   version "1.0.1"
