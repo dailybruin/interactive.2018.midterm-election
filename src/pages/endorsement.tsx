@@ -123,37 +123,6 @@ const EndorsementPage = ({ data }) => {
           </div>
         ))}
       </div>
-      {/*<div className={css`
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-around;
-        `}>
-        {data.allKerckhoffArticle.edges.map((nodeParent, i) => {
-          const node = nodeParent.node;
-          const imgSrc = node.image;
-          const endorsed = String(node.endorsed).toLowerCase() === 'yes';
-          const headline = node.headline;
-          return (
-            <div 
-              className={css`
-                margin: 1rem 1rem;
-              `}
-              key={i}
-              >
-              <EndorseCircle
-                cardType={endorsed ? 'approve' : 'reject'}
-                sizePx={200}
-                imgSizePx={150}
-                imgSrc={imgSrc}
-                title={headline}
-                />
-              <div>
-
-              </div>
-            </div>
-          )
-        })}
-      </div>*/}
     </>
   )
 }
