@@ -93,13 +93,21 @@ class FilledIconTable extends React.Component<{}, IFilledIconTableState> {
     votePin: IVotePin,
   };
 
+  resizeListener = () => {
+    this.setState({
+      screenWidth: window.innerWidth,
+    });
+  }
+
   componentDidMount() {
     if (windowExists()) {
-      window.addEventListener('resize', () => {
-        this.setState({
-          screenWidth: window.innerWidth,
-        })
-      });
+      window.addEventListener('resize', this.resizeListener);
+    }
+  }
+  
+  componentWillUnmount() {
+    if (windowExists()) {
+      window.removeEventListener('resize', this.resizeListener);
     }
   }
 
@@ -368,7 +376,7 @@ const IndexPage = ({ data }) => (
   <>
     <Head {...data.site.siteMetadata} />
     <NavBar/>
-    <Section2 cards={{...data.allKerckhoffArticle.edges}}/>
+    {/* <Section2 cards={{...data.allKerckhoffArticle.edges}}/> */}
     <FilledIconTable />
   </>
 )
