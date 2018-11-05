@@ -9,8 +9,10 @@ import S1Outline from '../assets/s1.png'
 import styled from "react-emotion"
 
 const buttonStyle = css({
-  marginTop: 35,
-  widty: 96,
+  marginTop: 30,
+  marginBottom: 10,
+  margin: "auto",
+  width: 250,
   backgroundColor: '#1C568C',
   border: "blue",
   borderRadius: 3,
@@ -21,6 +23,17 @@ const buttonStyle = css({
     cursor: "pointer"
   }
 })
+const StyledLink = styled('a')`
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    color: #FFFFFF;
+    text-decoration: none;
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
+`;
 
 interface ExpandableCardProps {
   title: string,
@@ -47,10 +60,11 @@ class ExpandableCard extends React.Component<ExpandableCardProps, ExpandableCard
   };
 
   render() {
+    console.log(this.props.link)
     return(
       <>
       <div className={css`
-        width: 300px;
+        width: 400px;
         display: flex;
         flex-direction: column;
         background-color: #FAFAFA;
@@ -63,11 +77,13 @@ class ExpandableCard extends React.Component<ExpandableCardProps, ExpandableCard
           align-items: center;
           position:relative
         `}>
-          <h1 className={ css`
+        <div className={ css`
             margin: 10px;
-            padding-right: 60px;
-        `}> {this.props.title} </h1>
-        <div style={{zIndex: 1, marginTop: 20, right: -50, float: "right", position: "absolute"}}>
+            padding-right: 100px;
+        `}>
+        <h1> {this.props.title} </h1>
+        </div>
+        <div style={{zIndex: 1, marginTop: 20, right: -40, float: "right", position: "absolute"}}>
           <EndorseCircle
               cardType={"article"}
               sizePx={150}
@@ -103,7 +119,7 @@ class ExpandableCard extends React.Component<ExpandableCardProps, ExpandableCard
           height={ this.state.open ? 'auto' : 0}
         >
         </AnimateHeight>
-        <button className={buttonStyle}><a href={this.props.link}>Read More</a></button>
+        <button className={buttonStyle}><a style={{color: "inherit", textDecoration: "inherit"}} href={this.props.link}>Read More</a></button>
       </div>
 </>
     )
