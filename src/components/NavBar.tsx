@@ -80,7 +80,7 @@ class NavBar extends React.Component<INavBarProps,{}> {
       <Headroom style={{zIndex: 2}}>
         <TitleBackground>
           <NavBarContent>
-            <img style={{height: "100%", margin: 0}} src={HeaderImg} onClick={() => navigate("/")}/>
+            <img style={{height: "100%", margin: 0}} src={HeaderImg} alt={"midterm election 2018"} onClick={() => navigate("/")}/>
           </NavBarContent>
           {useBlueButtonHeader ? 
             <NavBarContent className={css`@media (max-width: 800px) { display: none; }`}>

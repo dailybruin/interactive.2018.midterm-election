@@ -51,7 +51,7 @@ export default class IconTable extends React.Component<IconTableProps> {
         >
         <img className={css`
           margin: 0;
-        `}src={src} />
+        `} src={src} alt={"guide button"}/>
       </div>);
     });
   }

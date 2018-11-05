@@ -1,17 +1,13 @@
 import * as React from 'react'
 import { css } from 'react-emotion'
 import AnimateHeight from 'react-animate-height'
-//import { RotateCcw } from 'react-feather';
-import { Byline } from '@dailybruin/lux'
 import { toSentence } from '@dailybruin/lux'
 import EndorseCircle from './EndorseCircle'
 import styled from "react-emotion"
 
 const buttonStyle = css({
-  marginTop: 30,
-  marginBottom: 10,
-  margin: "auto",
-  width: 250,
+  margin: 10,
+  width: 100,
   backgroundColor: '#1C568C',
   border: "blue",
   borderRadius: 3,
@@ -42,6 +38,7 @@ interface ExpandableCardProps {
   description: string,
   link: string,
   endorsed: string,
+  passedId: string,
  }
 
 interface ExpandableCardState {
@@ -60,10 +57,9 @@ class ExpandableCard extends React.Component<ExpandableCardProps, ExpandableCard
   };
 
   render() {
-    console.log(this.props.link)
     return(
       <>
-      <div className={css`
+      <div id={this.props.passedId} className={css`
         width: 400px;
         display: flex;
         flex-direction: column;
@@ -119,7 +115,7 @@ class ExpandableCard extends React.Component<ExpandableCardProps, ExpandableCard
           height={ this.state.open ? 'auto' : 0}
         >
         </AnimateHeight>
-        <button className={buttonStyle}><a style={{color: "inherit", textDecoration: "inherit"}} href={this.props.link}>Read More</a></button>
+        <a style={{color: "inherit", textDecoration: "inherit"}} href={this.props.link}><button className={buttonStyle}>Read More</button></a>
       </div>
 </>
     )

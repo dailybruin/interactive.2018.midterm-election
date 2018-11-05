@@ -97,7 +97,6 @@ const EndorsementPage = ({ data }) => {
               {group[1].map((node, i) => {
                 const imgSrc = node.image;
                 const endorsed = String(node.endorsed).toLowerCase() === 'yes';
-                console.log(endorsed)
                 const headline = node.headline;
                 return (
                   <div 

@@ -6,7 +6,6 @@ interface IEndorseCircleProps {
   sizePx: number;
   imgSizePx: number;
   imgSrc: string;
-  title?: string;
 }
 
 const approveColors = ['#84B9A6', '#78AD9A'];
@@ -32,7 +31,6 @@ const EndorseCircle: React.SFC<IEndorseCircleProps> = ({cardType, sizePx, imgSiz
   const imgSizePxStr = `${imgSizePx}px`;
   const halfDiffPxStr = `${Math.max(0, (sizePx - imgSizePx) / 2)}px`;
 
-
   return (
     <div className={css`
       width: ${sizePxStr};
@@ -50,9 +48,7 @@ const EndorseCircle: React.SFC<IEndorseCircleProps> = ({cardType, sizePx, imgSiz
           z-index: 1;
           background-color: white;
         `}
-        alt="" />
-
-
+        alt={cardType} />
       <div className={css`
           position: absolute;
           background-color: ${colors[0]};
@@ -71,7 +67,6 @@ const EndorseCircle: React.SFC<IEndorseCircleProps> = ({cardType, sizePx, imgSiz
           border-top-right-radius: ${sizePxStr};
         `}/>
       </div>
-
   );
 }
 
