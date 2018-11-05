@@ -4,6 +4,32 @@ import TextField from '@material-ui/core/TextField';
 import ExpandableCard from './ExpandableCard'
 import { FileText } from 'react-feather';
 import styled, {css} from 'react-emotion'
+import { graphql } from 'gatsby'
+
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        siteName
+        description
+        url
+      }
+    }
+    kerckhoffArticle (filter: {title: {regex: "/./"}}) {
+      headline
+      author
+      image
+      section
+      endorsed
+      link
+      content {
+        type
+        value
+      }
+    }
+  }
+`
+
 interface CardProps {
     /* Props of card component */
 }
@@ -28,13 +54,14 @@ export default class SectionList extends React.Component<SectionProps, SectionSt
   constructor(props) {
     super(props);
     this.state = {
-        cards:[1,2,3,4,5]
+        cards: [1, 2, 3]
     };
   }
     render() {
       console.log("ENTERED SECTION LIST");
-        return (
+        return ({ data }) => (
             <div>
+                {console.log(data)}
                 { this.state.cards ? (
                     <div>
                         <div className={gridStyle}>
