@@ -25,6 +25,7 @@ const TitleBackground = styled('div')`
   justify-content: space-between;
   align-items: center;
   height: 240px;
+  z-index: 10;
   @media (max-width: 500px) {
     height: 45vw;
   }

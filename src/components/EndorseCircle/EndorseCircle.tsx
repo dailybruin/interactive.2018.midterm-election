@@ -2,7 +2,7 @@ import * as React from 'react';
 import { css } from 'emotion';
 
 interface IEndorseCircleProps {
-  isApprove: boolean;
+  cardType: string;
   sizePx: number;
   imgSizePx: number;
   imgSrc: string;
@@ -10,19 +10,35 @@ interface IEndorseCircleProps {
 
 const approveColors = ['#84B9A6', '#78AD9A'];
 const rejectColors = ['#D17B7B', '#C66D6D'];
+const articleColors = ['#E6E6E6', '#E6E6E6'];
 
-const EndorseCircle: React.SFC<IEndorseCircleProps> = ({isApprove, sizePx, imgSizePx, imgSrc}) => {
-  const colors = isApprove ? approveColors : rejectColors;
+const EndorseCircle: React.SFC<IEndorseCircleProps> = ({cardType, sizePx, imgSizePx,imgSrc}) => {
+  let colors;
+  console.log("THIS IS CARD TYPE: ", cardType);
+  if(cardType == "approve"){
+    colors = approveColors;
+
+  }
+  if(cardType == "article"){
+    colors = articleColors;
+
+  }
+  if(cardType == "reject"){
+    colors = rejectColors;
+
+  }
   const sizePxStr = `${sizePx}px`;
   const halfSizePxStr = `${sizePx / 2}px`;
   const imgSizePxStr = `${imgSizePx}px`;
   const halfDiffPxStr = `${Math.max(0, (sizePx - imgSizePx) / 2)}px`;
+
 
   return (
     <div className={css`
       width: ${sizePxStr};
       height: ${sizePxStr};
     `}>
+
       <img src={imgSrc}
         className={css`
           position: absolute;
@@ -34,6 +50,8 @@ const EndorseCircle: React.SFC<IEndorseCircleProps> = ({isApprove, sizePx, imgSi
           z-index: 1;
         `}
         alt="" />
+
+
       <div className={css`
           position: absolute;
           background-color: ${colors[0]};
@@ -51,7 +69,8 @@ const EndorseCircle: React.SFC<IEndorseCircleProps> = ({isApprove, sizePx, imgSi
           border-bottom-right-radius: ${sizePxStr};
           border-top-right-radius: ${sizePxStr};
         `}/>
-    </div>
+      </div>
+
   );
 }
 

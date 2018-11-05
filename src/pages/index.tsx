@@ -47,14 +47,6 @@ const IndexPage = ({ data }) => (
         shouldMagnifyOnHover: true,
       }]}
       />
-    <div className={css`margin: 100px;`}>
-      <EndorseCircle
-        isApprove={false}
-        sizePx={150}
-        imgSizePx={120}
-        imgSrc={TestLongCat}
-        />
-    </div>
   </>
 )
 
