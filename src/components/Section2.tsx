@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import ExpandableCard from './ExpandableCard'
+import styled, {css} from 'react-emotion'
+
 interface CardProps {
     /* Props of card component */
 }
@@ -9,40 +11,45 @@ interface CardProps {
 interface SectionProps {
     title?: string,
     cardData?: CardProps[], //for now, not exactly sure how we are pulling data
+    cards?: any[]
 }
 
 interface SectionState {
-    cards: number[]
 }
 
+const gridStyle = css({
+    display: 'flex',
+    justifyContent: "center",
+    flexWrap: "wrap",
+    margin: "auto"
+})
 export default class SectionList extends React.Component<SectionProps, SectionState> {
   constructor(props) {
     super(props);
-    this.state = {
-        cards:[1,2,3,4,5]
-    };
-  }
+}
+    
     render() {
         return ({data}) => (
             <div>
-                { this.state.cards ? (
+                { this.props.cards ? (
                     <div>
-                        <Grid container justify="center" spacing={24} style={{padding: 16}}>
-                            { this.state.cards.map((currentCard,index) => (
-                                <Grid item md={4} key={index}>
+                        <div className={gridStyle}>
+                            { Object.keys(this.props.cards).map(key => {
+                                let content = "";
+                                this.props.cards[key].node.content.map(text => {
+                                    content += text.value
+                                })
+                                return(<div style={{margin : 30}} key={key}>
                                     <ExpandableCard
-                                      title="title testing"
-                                      authors={["ryang"]}
-                                      tags={["testing", "another test"]}
+                                      title={this.props.cards[key].node.title}
+                                      authors={[this.props.cards[key].node.author]}
+                                      tags={[this.props.cards[key].node.section]}
                                       photo="https://dailybruin.com/images/2018/10/\web.sp_.mwp_.nbk_.ADX_-640x461.jpg"
-                                      description="this is a description
-                                      fdasdkfjadskfjkasdfjkasdjfksdajfkjdsakfjakdsjfkadjsfkasdjfk
-                                      dfkjasdkfjadslkfjadkljfkladsjfkl"
-                                      height={200}
+                                      description={content}
                                     />
-                                </Grid>
-                            ))}
-                        </Grid>
+                                </div>);
+                            })}
+                        </div>
                     </div>
                 ) : "No cards found" }
             </div>

@@ -368,17 +368,8 @@ const IndexPage = ({ data }) => (
   <>
     <Head {...data.site.siteMetadata} />
     <NavBar/>
-    <Section2 />
+    <Section2 cards={{...data.allKerckhoffArticle.edges}}></Section2>/>
     <FilledIconTable />
-    <div className={css`margin: 100px;`}>
-      <EndorseCircle
-        cardType="approve"
-        sizePx={150}
-        imgSizePx={120}
-        imgSrc={S1Outline}
-        title="US SENATOR REPRESENTING CALIFORNIA"
-        />
-    </div>
   </>
 )
 
