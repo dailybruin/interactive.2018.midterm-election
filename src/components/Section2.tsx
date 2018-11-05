@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import ExpandableCard from './ExpandableCard'
-import { FileText } from 'react-feather';
 import styled, {css} from 'react-emotion'
 import { graphql } from 'gatsby'
 
