@@ -14,5 +14,11 @@ module.exports = {
         pathToConfigModule: 'src/utils/typography',
       },
     },
+    {
+      resolve: '@dailybruin/gatsby-source-kerckhoff',
+      options: {
+        slug: 'interactive.2018.midterm-election',
+      },
+    },
   ],
 }
