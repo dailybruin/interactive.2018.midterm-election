@@ -3,26 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import ExpandableCard from './ExpandableCard'
 import styled, {css} from 'react-emotion'
-import { graphql } from 'gatsby'
 
-/*
-export const query = graphql`
-  query {
-    allKerckhoffArticle(filter: {title: {regex: "/./"}}) {
-      headline
-      author
-      image
-      section
-      endorsed
-      link
-      content {
-        type
-        value
-      }
-    }
-  }
-`
-*/
 interface CardProps {
     /* Props of card component */
 }
@@ -48,7 +29,7 @@ export default class SectionList extends React.Component<SectionProps, SectionSt
 }
     
     render() {
-        return (
+        return ({data}) => (
             <div>
                 { this.props.cards ? (
                     <div>
