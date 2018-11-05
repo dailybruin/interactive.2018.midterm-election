@@ -368,7 +368,6 @@ const IndexPage = ({ data }) => (
   <>
     <Head {...data.site.siteMetadata} />
     <NavBar/>
-    {/* <Section2 cards={{...data.allKerckhoffArticle.edges}}></Section2> */}
     <Section2 cards={{...data.allKerckhoffArticle.edges}}/>
     <FilledIconTable />
   </>
