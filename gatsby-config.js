@@ -17,7 +17,7 @@ module.exports = {
     {
       resolve: '@dailybruin/gatsby-source-kerckhoff',
       options: {
-        slug: 'online.demoaml',
+        slug: 'interactive.2018.midterm-election',
       },
     },
   ],

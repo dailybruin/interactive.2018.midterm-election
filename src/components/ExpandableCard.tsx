@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { css } from 'react-emotion'
 import AnimateHeight from 'react-animate-height'
-import { RotateCcw } from 'react-feather';
+//import { RotateCcw } from 'react-feather';
 import { Byline } from '@dailybruin/lux'
 import { toSentence } from '@dailybruin/lux'
 interface ExpandableCardProps {

@@ -19,6 +19,18 @@ export const query = graphql`
         url
       }
     }
+    kerckhoffArticle {
+      headline
+      author
+      image
+      section
+      endorsed
+      link
+      content {
+        type
+        value
+      }
+    }
   }
 `
 const IndexPage = ({ data }) => (
