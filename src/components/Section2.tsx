@@ -49,9 +49,10 @@ export default class SectionList extends React.Component<SectionProps, SectionSt
                                       title={this.props.cards[key].node.headline}
                                       authors={[this.props.cards[key].node.author]}
                                       tags={[this.props.cards[key].node.section]}
-                                      photo={[this.props.cards[key].node.image]}
+                                      photo={this.props.cards[key].node.image}
                                       description={content}
                                       link={this.props.cards[key].node.link}
+                                      endorsed={this.props.cards[key].node.endorsed}
                                     />
                                 </div>);
                             })}

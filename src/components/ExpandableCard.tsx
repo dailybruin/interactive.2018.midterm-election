@@ -41,6 +41,7 @@ interface ExpandableCardProps {
   photo: any,
   description: string,
   link: string,
+  endorsed: string,
  }
 
 interface ExpandableCardState {
@@ -84,7 +85,7 @@ class ExpandableCard extends React.Component<ExpandableCardProps, ExpandableCard
         </div>
         <div style={{zIndex: 1, marginTop: 20, right: -40, float: "right", position: "absolute"}}>
           <EndorseCircle
-              cardType={"article"}
+              cardType={this.props.endorsed == "yes" ? "approve" : (this.props.endorsed == "no"  ? "reject": "article") }
               sizePx={150}
               imgSizePx={120}
               imgSrc={this.props.photo}>
