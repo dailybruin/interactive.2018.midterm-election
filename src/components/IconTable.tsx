@@ -27,9 +27,10 @@ export default class IconTable extends React.Component<IconTableProps> {
     const {icons} = this.props;
 
     return icons.map(({
-      src, left, top, width, shouldMagnifyOnHover,
+      src, left, top, width,
+      shouldMagnifyOnHover,
       onClickHandler = () => {},
-    }) => {
+    }, i) => {
       return (<div className={css`
           position: absolute;
           width: ${width}vw;
@@ -38,13 +39,13 @@ export default class IconTable extends React.Component<IconTableProps> {
           ${shouldMagnifyOnHover && `
           transition: all 0.5s;
           &:hover {
-            transform: scale(1.08);
-            // filter: drop-shadow(3px 3px 4px black);
+            transform: rotate(-5deg) scale(1.1);
             cursor: pointer;
             transition: all 0.5s;
           }
           `}
         `}
+          key={i}
           onMouseEnter={(e) => e.preventDefault()}
           onClick={onClickHandler}
         >
@@ -59,7 +60,7 @@ export default class IconTable extends React.Component<IconTableProps> {
     const {backgroundSrc, heightVW} = this.props;
     return (
       <div className={css`
-        background: url(${backgroundSrc}) no-repeat;
+        background: url('${backgroundSrc}') no-repeat;
         background-size: 100%;
         width: 100%;
         height: ${heightVW}vw;
