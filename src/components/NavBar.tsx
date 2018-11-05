@@ -25,7 +25,6 @@ const TitleBackground = styled('div')`
   align-items: center;
   height: 240px;
   z-index: 10;
-  box-shadow: 0 5px 10px -10px #000000;
   @media (max-width: 1100px) {
     min-height: 250px;
     height: 30vw;
@@ -35,14 +34,14 @@ const TitleBackground = styled('div')`
   }
 `
 const NavBarContent = styled('div')`
-display: flex;
-flex-direction: column;
-margin-left: 10px;
-height: 140px;
-justify-content: center;
-@media (max-width: 1100px) {
-  align-items: center;
-  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  height: 140px;
+  justify-content: center;
+  @media (max-width: 1100px) {
+    align-items: center;
+    margin-top: 5px;
 }
 `
 
@@ -55,7 +54,7 @@ class NavBar extends React.Component<{},{}> {
           <NavBarContent>
             <img style={{height: "100%", margin: 0}} src={HeaderImg}/>
           </NavBarContent>
-          <NavBarContent>
+          <NavBarContent className={css`@media (max-width: 800px) {display: none;}`}>
             <LandingText>
               THE DAILY BRUIN’S 2018 MIDTERM ELECTION GUIDE: Click on the illustration below to see read about local, state, and national races or view our list of endorsements.
             </LandingText>

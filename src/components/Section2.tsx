@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import ExpandableCard from './ExpandableCard'
-//import { FileText } from 'react-feather';
-
 interface CardProps {
     /* Props of card component */
 }
@@ -25,7 +23,7 @@ export default class SectionList extends React.Component<SectionProps, SectionSt
     };
   }
     render() {
-        return (
+        return ({data}) => (
             <div>
                 { this.state.cards ? (
                     <div>

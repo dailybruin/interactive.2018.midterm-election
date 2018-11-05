@@ -366,7 +366,6 @@ class FilledIconTable extends React.Component<{}, IFilledIconTableState> {
 
 const IndexPage = ({ data }) => (
   <>
-    {console.log(data)}
     <Head {...data.site.siteMetadata} />
     <NavBar/>
     <Section2 />
