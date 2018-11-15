@@ -447,7 +447,7 @@ const IndexPage = ({ data }) => (
     <FilledIconTable />
     <Footer
       githubName={'interactive.2018.midterm-election/'}
-      developers={['Max Wu', 'Richard Yang', 'Karl Huang', 'Mindi Cao', 'Kevin Qian']}
+      developers={['Callista Wu', 'Max Wu', 'Richard Yang', 'Karl Huang', 'Mindi Cao', 'Kevin Qian']}
       copyrightYear={2018}
     />
   </>
